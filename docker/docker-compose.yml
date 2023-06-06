@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: example # замените на свой пароль
+      MYSQL_DATABASE: test # замените на имя вашей базы данных
+      MYSQL_USER: user # замените на имя пользователя
+      MYSQL_PASSWORD: password # замените на пароль
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data5:/var/lib/mysql
+
+volumes:
+  db_data5:
